@@ -43,7 +43,7 @@ jobs:
     name: integration ${{ matrix.suite }}
     if: github.event_name != 'pull_request' || github.event.label.name == 'run-ci'
     environment: integration-license
-    runs-on: ${{ fromJSON('{"providers":"ubuntu-latest-64-cores","extensions":"ubuntu-latest-64-cores","accounting":"ubuntu-latest-32-cores","management":"ubuntu-latest-32-cores","management-replica":"ubuntu-latest-32-cores"}')[matrix.suite] || 'ubuntu-latest-16-cores' }}
+    runs-on: ${{ fromJSON('{"providers":"ubuntu-latest","extensions":"ubuntu-latest","accounting":"ubuntu-latest","management":"ubuntu-latest","management-replica":"ubuntu-latest"}')[matrix.suite] || 'ubuntu-latest' }}
     timeout-minutes: 60
     strategy:
       fail-fast: false
